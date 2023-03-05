@@ -3,13 +3,14 @@ stops = [ "Croy", "Cumbernauld", "Falkirk High", "Linlithgow", "Livingston", "Ha
 stops.append("Edinburgh Waverly"),
 stops.insert(0, "Glasgow Queen St"),
 stops.insert(3, "Polmont"),
-# print(stops[6])
+print(stops[5])
 stops.remove("Livingston")
-stops.pop(2)
+# stops.pop(2)
+stops.pop(stops.index("Cumbernauld"))
 # print(len(stops))
-stops.sort()
+# stops.sort()
 # print(stops)
-stops.reverse()
+# stops.reverse()
 
 # total_stops = 7
 
