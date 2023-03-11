@@ -28,12 +28,18 @@ class Venue:
         else:
             self.stock[drink] = quantity
 
-    def venue_can_sell_drink(self, guest, drink):
-        if drink.name in self.stock:
+    def venue_can_sell_drink(self, guest, drink, quantity):
             if guest.guest_can_afford_drink(drink):
+                self.stock[drink] -= quantity
                 guest.guest_buy_drink(drink)
                 self.till += drink.price
-                # self.stock[drink] -= quantity
+
+
+    # def serve(self, customer, drink):
+    #     if self.can_serve(customer, drink):
+    #         self.stock[drink] -= 1
+    #         customer.buy_drink(drink)
+    #         self.till += drink.price
 
     # def remove_drink_from_stock(self, drink, quantity):
     #     for booze in self.stock:
