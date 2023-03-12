@@ -65,15 +65,13 @@ class TestVenue(unittest.TestCase):
         self.assertEqual(5, self.venue1.stock[self.drink1.name])
         print(self.venue1.stock)
 
-    # def test_venue__can_sell_drink(self):
-    #     self.venue1.add_drink_to_stock(self.drink1, 5)
-    #     print(self.venue1.stock[self.drink1.price])
-        # self.venue1.venue_can_sell_drink(self.guest1, self.drink1, 1)
-        # print(self.venue1.stock)
-        # self.assertEqual(4, self.venue1.stock[self.drink1])
+    def test_venue__can_sell_drink(self):
+        self.venue1.add_drink_to_stock(self.drink1, 5)
+        self.venue1.venue_can_sell_drink(self.guest1, self.drink1, 1)
+        self.assertEqual(4, self.venue1.stock[self.drink1])
     #     self.venue1.venue_can_sell_drink(self.guest1, self.drink1, 1)
     #     self.assertEqual(3, self.venue1.stock[self.drink1])
-    
+
     # def test_venue__has_stock_value(self):
     #     self.venue1.add_drink_to_stock(self.drink1, 5)
     #     self.assertEqual(50, self.venue1.stock_value())
