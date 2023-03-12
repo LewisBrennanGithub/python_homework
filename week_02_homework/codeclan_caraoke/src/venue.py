@@ -37,7 +37,7 @@ class Venue:
     def venue_can_sell_drink(self, guest, drink, quantity):
             if guest.guest_can_afford_drink(drink):
                 self.stock[drink.name] -= quantity
-                guest.guest_buy_drink(drink.name)
+                guest.guest_buy_drink(drink)
                 self.till += drink.price
 
     def venue_find_total_stock_value(self, drink):
@@ -57,7 +57,6 @@ class Venue:
     #      for unit in inventory.stock:
     #           valuation += unit
               
-
      # def add_drink_to_stock(self, drink, quantity):
     #     if drink in self.stock:
     #         self.stock[drink] += quantity
