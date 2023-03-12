@@ -25,6 +25,7 @@ class Venue:
     def add_drink_to_stock(self, drink, quantity):
         if drink in self.stock:
             self.stock[drink] += quantity
+        elif self.stock[drink] 
         else:
             self.stock[drink] = quantity
 
@@ -35,6 +36,20 @@ class Venue:
                 self.till += drink.price
 
 
+
+
+
+
+
+
+
+
+
+
+    # def venue_can_sell_drink(self, guest, drink):
+    #      if guest.guest_can_afford_drink(drink):
+    #           return True
+    
     # def serve(self, customer, drink):
     #     if self.can_serve(customer, drink):
     #         self.stock[drink] -= 1

@@ -25,7 +25,15 @@ class Room:
         for song in list:
             print(song.name)
 
-    # print([x.name for x in self.room1.attendance]) 
+    def guest_goes_berserk(self, guest):
+        # guest_vibe = guest.berserk
+        for song in self.playlist:
+            if guest.favourite_song.name == song.name:
+                guest.berserk = "Whoo!"
+                return guest.berserk
+
+    # Should the berserk thing be a return?
+
 
 
 
