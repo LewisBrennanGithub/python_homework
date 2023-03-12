@@ -22,36 +22,30 @@ class Venue:
             if len(room.attendance) < room.capacity:
                 room.add_guest_to_list(guest)
 
-    # def add_drink_to_stock(self, drink, quantity):
-    #     if drink in self.stock:
-    #         self.stock[drink] += quantity
-    #     else:
-    #         self.stock[drink] = quantity
-
     def add_drink_to_stock(self, drink, quantity):
         if drink.name in self.stock:
             self.stock[drink.name] += quantity
         else:
             self.stock[drink.name] = quantity
-        
+
     def venue_can_sell_drink(self, guest, drink, quantity):
             if guest.guest_can_afford_drink(drink):
                 self.stock[drink.name] -= quantity
                 guest.guest_buy_drink(drink)
                 self.till += drink.price
 
-    def venue_find_total_stock_value(self, drink):
-        if drink in self.stock:
-            return self.stock[drink]
-        else:
-            return 0
-        
-    # def stock_value(self):
-    #     total = 0
-    #     for drink in self.stock:
-    #         total += (drink.price * self.stock[drink])
-    #     return total
-        
+    def stock_value(self):
+        total = 0
+        for drink in self.stock:
+            total += (self.stock[drink.price] * self.stock[drink.name])
+        return total
+
+    # def venue_find_total_stock_value(self, drink):
+    #     if drink in self.stock:
+    #         return self.stock[drink.name]
+    #     else:
+    #         return 0
+    #      
     # def venue_find_total_stock_value(self, inventory):
     #      valuation = 0
     #      for unit in inventory.stock:
@@ -67,17 +61,6 @@ class Venue:
         #      self.stock[drink] = 0
         # elif drink in self.stock[drink] == 0:
         #      self.stock[drink] = 0
-
-
-
-
-
-
-
-
-
-
-
 
     # def venue_can_sell_drink(self, guest, drink):
     #      if guest.guest_can_afford_drink(drink):

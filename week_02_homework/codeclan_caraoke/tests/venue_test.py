@@ -61,7 +61,6 @@ class TestVenue(unittest.TestCase):
     def test_venue__has_stock(self):
         self.venue1.add_drink_to_stock(self.drink1, 5)
         self.venue1.add_drink_to_stock(self.drink2, 4)
-        self.venue1.venue_find_total_stock_value(self.drink1)
         self.assertEqual(5, self.venue1.stock[self.drink1.name])
         print(self.venue1.stock)
 
@@ -69,14 +68,26 @@ class TestVenue(unittest.TestCase):
         self.venue1.add_drink_to_stock(self.drink1, 5)
         self.venue1.venue_can_sell_drink(self.guest1, self.drink1, 1)
         self.assertEqual(4, self.venue1.stock[self.drink1.name])
-    #     self.venue1.venue_can_sell_drink(self.guest1, self.drink1, 1)
-    #     self.assertEqual(3, self.venue1.stock[self.drink1])
+        self.venue1.venue_can_sell_drink(self.guest1, self.drink1, 1)
+        self.assertEqual(3, self.venue1.stock[self.drink1.name])
 
-    # def test_venue__has_stock_value(self):
-    #     self.venue1.add_drink_to_stock(self.drink1, 5)
-    #     self.assertEqual(50, self.venue1.stock_value())
+    def test_venue__cant_sell_drink_poor_customer(self):
+        self.venue1.add_drink_to_stock(self.drink1, 5)
+        self.venue1.venue_can_sell_drink(self.guest3, self.drink1, 1)
+        self.assertEqual(5, self.venue1.stock[self.drink1.name])
 
-    # def test_pub_has_stock_value(self):
+    def test_venue__has_stock_value(self):
+        self.venue1.add_drink_to_stock(self.drink1, 5)
+        self.assertEqual(50, self.venue1.stock_value())
+
+    def test_venue__cant_sell_drink_no_stock(self):
+        self.venue1.add_drink_to_stock(self.drink1, 1)
+        self.venue1.venue_can_sell_drink(self.guest1, self.drink1, 1)
+        self.venue1.venue_can_sell_drink(self.guest1, self.drink1, 1)
+        self.venue1.venue_can_sell_drink(self.guest1, self.drink1, 1)
+        print(self.venue1.stock)
+
+        # def test_pub_has_stock_value(self):
     #     self.venue1.add_drink_to_stock(self.drink1, 5)
     #     self.assertEqual(2.00, self.venue1.stock_value())
         # self.venue1.add_drink_to_stock(self.drink2, 4)   
@@ -89,17 +100,6 @@ class TestVenue(unittest.TestCase):
         # self.assertEqual(4, self.venue1.stock[self.drink1])
     #     self.venue1.venue_can_sell_drink(self.guest1, self.drink1, 1)
     #     self.assertEqual(3, self.venue1.stock[self.drink1])
-
-    # def test_venue__cant_sell_drink_poor_customer(self):
-    #     self.venue1.add_drink_to_stock(self.drink1, 5)
-    #     self.venue1.venue_can_sell_drink(self.guest3, self.drink1, 1)
-    #     self.assertEqual(5, self.venue1.stock[self.drink1])
-
-    # def test_venue__cant_sell_drink_no_stock(self):
-    #     self.venue1.add_drink_to_stock(self.drink1, 1)
-    #     self.venue1.venue_can_sell_drink(self.guest3, self.drink1, 1)
-    #     self.assertEqual(0, self.venue1.stock[self.drink1])
-
 
 
 
