@@ -10,4 +10,6 @@ def add_new_book(book):
     book_list.append(book)
 
 def remove_named_book(book):
-    book_list.remove(book)    
+    book_list.remove(book)
+
+    

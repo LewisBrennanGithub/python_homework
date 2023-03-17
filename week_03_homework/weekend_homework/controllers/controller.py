@@ -3,12 +3,16 @@ from app import app
 from models.library import *
 from models.book import *
 
-@app.route('/library')
+@app.route("/")
 def index():
+    return render_template("index.html")
+
+@app.route('/library')
+def library_index():
     return render_template('index.html', title = "generic library", book_collection = book_list)
 
 @app.route('/library/<index>')
-def single_order(index):
+def single_book(index):
   chosen_book = book_list[int(index)]
   return render_template('bookinfo.html', book=chosen_book)
 
@@ -20,13 +24,10 @@ def add_book():
   newBook = Book(title=bookTitle, author=bookAuthor, genre=bookGenre)
   add_new_book(newBook)
   return redirect('/library')
-  # return render_template('index.html', title='Home', book_collection = book_list)
 
-@app.route('/library/<index>', methods=['DELETE']) 
-def remove_book():
-   bookTitle = request.form['title']
-   removedBook = Book(title=bookTitle)
-   remove_named_book(int(removedBook))
-   return redirect('/library')
+@app.route("/library/<index>", methods=["POST"])
+def book_delete(index):
+    remove_named_book(int(index))
+    return redirect("/library")
 
    

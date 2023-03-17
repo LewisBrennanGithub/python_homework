@@ -12,5 +12,10 @@
     <h3>{{ book.author }}</h3>
     <h4>{{ book.genre }}</h4>
   </div>
+  <div>
+    <form action="/library/<index>" method="destroy">
+      <input type="submit" value="Remove Book" id="idremove">
+    </form> 
+  </div>
 </body>
 </html>
