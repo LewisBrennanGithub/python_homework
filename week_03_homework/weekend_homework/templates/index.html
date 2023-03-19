@@ -16,10 +16,16 @@
       <h2>{{ book.title }}</h2>
       <h3>{{ book.author }}</h3>
       <h4>{{ book.genre }}</h4>
-      <p>text</p>
-      <p>text</p>
+      <h5>Is book checked out: {{ book.checked_out}}</h5>
       <a href="/library/{{loop.index0}}">Show Book</a>
-    </div>
+      <td></td><a href="/delete/{{loop.index0}}">Delete</a></td>
+      <div>
+        <form action="/library/{{loop.index0}}/checkout">
+          <input type="checkbox" id="checkout" name="checkout">
+          <label for="vehicle1">Checkout Book</label><br>
+          <input type="submit" value="Submit">
+        </form>
+        </div>
     {% endfor %}
 
     <!-- input stuff starts-->
