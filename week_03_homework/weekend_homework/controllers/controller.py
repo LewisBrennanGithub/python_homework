@@ -33,14 +33,25 @@ def delete_book(index):
 @app.route('/checkout_book/<book_title>', methods=['POST'])
 def checkout_book(book_title):
     for book in book_list:
-        if book.title == book_title:
-            if book.checked_out:
-                book.checked_out = False
-                return redirect('/library')
-            else:
-                book.checked_out = True
-                return redirect('/library')
-    # return f'Could not find book with title: {book_title}.'
+        if book.checked_out:
+            book.checked_out = False
+            return redirect('/library')
+        else:
+            book.checked_out = True
+            return redirect('/library')
     return redirect('/library')
+
+# @app.route('/checkout_book/<book_title>', methods=['POST'])
+# def checkout_book(book_title):
+#     for book in book_list:
+#         # if book.title == book_title:
+#             if book.checked_out:
+#                 book.checked_out = False
+#                 return redirect('/library')
+#             else:
+#                 book.checked_out = True
+#                 return redirect('/library')
+#     # return f'Could not find book with title: {book_title}.'
+#     return redirect('/library')
 
    

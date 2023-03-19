@@ -9,12 +9,12 @@ book_list = [book1, book2, book3]
 def add_new_book(book):
     book_list.append(book)
 
-def checkout_book(book_title):
-    for book in book_list:
-        if book.title == book_title:
-            book.checked_out = True
-            return True
-    return False
+# def checkout_book(book_title):
+#     for book in book_list:
+#         if book.title == book_title:
+#             book.checked_out = True
+#             return True
+#     return False
 
 
 
