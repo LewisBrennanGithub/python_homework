@@ -16,18 +16,22 @@
       <h2>{{ book.title }}</h2>
       <h3>{{ book.author }}</h3>
       <h4>{{ book.genre }}</h4>
-      <h5>Is book checked out: {{ book.checked_out}}</h5>
       <a href="/library/{{loop.index0}}">Show Book</a>
       <td></td><a href="/delete/{{loop.index0}}">Delete</a></td>
-      <div>
-        <form action="/library/{{loop.index0}}/checkout">
-          <input type="checkbox" id="checkout" name="checkout">
-          <label for="vehicle1">Checkout Book</label><br>
-          <input type="submit" value="Submit">
-        </form>
+      <form action="/checkout_book/{{book.title}}" method="post">
+        {% if book.checked_out %}
+        <label>Is book checked out: {{ book.checked_out}}</label>
+        <div>        
+          <input type="submit" value="Checkin">
         </div>
+        {% else %}
+        <label>Is book checked out: {{ book.checked_out}}</label>
+        <div>
+        <input type="submit" value="Checkout">
+      </div>
+        {% endif %}
+      </form>
     {% endfor %}
-
     <!-- input stuff starts-->
     <form action="/library" method="post">
       <label for="title">Title</label>
@@ -39,6 +43,5 @@
       <input type="submit" value="Add Book">
     </form> 
     <!-- input stuff ends -->
-
 </body>
 </html>
