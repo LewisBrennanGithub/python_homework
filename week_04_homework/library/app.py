@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect
-from controllers.library_controller import tasks_blueprint
+from controllers.library_controller import library_blueprint
 
 app = Flask(__name__)
 

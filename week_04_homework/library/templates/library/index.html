@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+{% for book in library %}
+  <div class="task">
+    <div class="content">
+      {{book.author.name}}
+      <div class="description">
+        <a href="/library/{{book.id}}">{{book.title}}</a>
+        <span class="duration">{{book.genre}}</span>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}

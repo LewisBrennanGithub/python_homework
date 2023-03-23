@@ -20,6 +20,20 @@ def select_all():
         authors.append(author)
     return authors
 
+def select(id):
+    author = None
+    sql = "SELECT * FROM authors WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+
+    # checking if the list returned by `run_sql(sql, values)` is empty. Empty lists are 'fasly' 
+    # Could alternativly have..
+    # if len(results) > 0 
+    if results:
+        result = results[0]
+        author = Author(result['name'], result['id'] )
+    return author
+
 def delete_all():
     sql = "DELETE FROM authors"
     run_sql(sql)
